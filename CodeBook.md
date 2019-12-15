@@ -1,6 +1,5 @@
 ---
 title: "Code Book"
-output: html_notebook
 ---
 
 subject: subject id (1-30)
