@@ -34,7 +34,7 @@ str(dataset[, c("subject", "activity")])
 setcolorder(dataset, c("subject", "activity"))
 
 #var names from features.txt
-setwd("Coursera/Data/UCI HAR Dataset/test")
+#setwd("Coursera/Data/UCI HAR Dataset/test")
 features <- read.table("../features.txt")#, as.is = TRUE)
 setnames(dataset, old = c(3:563), new = as.character(features[,2]))
 #only mean(), std()
@@ -56,8 +56,17 @@ feature_avgs_by_subj <-
   select(-(1:2)) %>%
   summarize_all(list(mean = mean))
 
-featire_avgs_by_activ <-
+feature_avgs_by_activ <-
   dataset2 %>% 
   group_by(activity) %>% 
   select(-(1:2)) %>%
   summarize_all(list(mean = mean))
+
+#write dataset2, feature_avgs_by_subj, feature_avgs_by_activ to csv, save them in ./GCData
+setwd("C:/Users/akirasano/Documents/Coursera/Getting_and_Cleaning_Data/")
+dir.create("./GCData")
+setwd("GCData")
+fwrite(dataset2, file = "dataset2.csv")
+fwrite(feature_avgs_by_subj, file = "feature_avgs_by_subj.csv")
+fwrite(feature_avgs_by_activ, file = "feature_avgs_by_activ.csv")
+setwd("../")
