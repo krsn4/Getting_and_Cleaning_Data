@@ -70,3 +70,7 @@ fwrite(dataset2, file = "dataset2.csv")
 fwrite(feature_avgs_by_subj, file = "feature_avgs_by_subj.csv")
 fwrite(feature_avgs_by_activ, file = "feature_avgs_by_activ.csv")
 setwd("../")
+
+#new
+#tidy dataset (dataset2) needs to be uploaded in .txt and by write.table()
+write.table(dataset2, file = "C:/usersakirasano/Documents/Coursera/Getting_and_Cleaning_Data/dataset2.txt", row.names = FALSE)
